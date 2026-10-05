@@ -5,7 +5,9 @@
      第一行在複查後改成「複查：需修正（留言連結）」或「複查：通過（完整 head SHA、留言連結）」。
      本 repo 另有特則時，以根目錄 CLAUDE.md／AGENTS.md 為準。 -->
 
-Closes #
+Refs #
+<!-- 只有「本 PR 合併後，該 Issue 的完成條件就全部成立」時，才把上一行改成 Closes #N；
+     多 PR、跨 repo、合併後還要上線驗收的，維持 Refs #N。見 GOVERNANCE.md 第 4 節。 -->
 
 ## 目標
 
