@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 共通治理（先讀）
+    url: https://github.com/NCCU-Student-Congress/.github/blob/main/GOVERNANCE.md
+    about: 工作鎖、狀態留言、PR、複查與 AI 權限的共通規則。
