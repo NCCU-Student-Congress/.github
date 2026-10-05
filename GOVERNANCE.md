@@ -18,7 +18,8 @@
 
 - 還沒決定的事留在 Issue，不先寫成正式規則；議長決定後才開 PR 改文件，並在 Issue 留 PR 連結。
 - Claude／ChatGPT 的 Project **不保存會持續變動的 repo 文件副本**，只放正本連結；既有副本視為失效。
-- 每個領域的「00」入口只放：領域邊界、優先順序、正本與決策入口的**連結**。不抄 GitHub 進度，也不抄決策內容。
+- 每個領域的「00」入口可以保留**議長層摘要**：領域邊界、本週優先順序、期限與依賴、等待事項、待決策摘要，以及正本與決策入口的連結。
+  **不得複製** GitHub 的詳細進度、證據全文、PR 細節或決策全文；這些只寫在來源 Issue／PR，00 用連結指過去。
   議長決策入口：<https://github.com/search?q=org%3ANCCU-Student-Congress+is%3Aopen+label%3A%E5%BE%85%E8%AD%B0%E9%95%B7%E6%B1%BA%E5%AE%9A&type=issues>
 
 ## 2. Project、執行者、主責
@@ -65,7 +66,9 @@
 - 複查者**自己看原始證據**，不能只重述製作者的結論。
 - **複查與驗收鎖定完整 commit SHA**。之後又有新 commit，先核對差異，受影響的部分重新複查／驗收。
 - 議長看到「複查：通過」且該 SHA 等於 PR 目前的 head，才按合併。
-- 有對應 Issue 的 PR，在說明寫 `Closes #N`，讓合併時 GitHub 自動關閉。
+- **只有「這個 PR 合併後，該 Issue 的完成條件就全部成立」時**，才在說明寫 `Closes #N`（或 `Fixes`／`Resolves`），讓合併時 GitHub 自動關閉。
+  同一個 Issue 有多個 PR、跨 repo、或合併後仍有後續工作（例如還要上線驗收）時，只寫 `Refs #N`。
+  為什麼：GitHub 會在**第一個**寫了 `Closes` 的 PR 合併時就關掉 Issue，其他 PR 還沒合、工作還沒完也一樣。
 
 ## 5. 回報
 
@@ -79,7 +82,7 @@
 |---|---|---|
 | Issue／PR 留言、建立 Issue、開 branch／PR、更新自己負責的 PR 說明、套用 label | 可 | — |
 | 建立本頁列出的共通 label | 可 | 名稱與說明照第 7 節 |
-| **關閉 Issue** | **條件式可** | 五項同時成立：① 最新狀態留言為「完成」；② 關聯 PR 全部已合併；③ 沒有 `待議長決定` label；④ 未完成的工作已移到另一個 Issue 並附連結；⑤ 關閉前留一則最後狀態留言，列出 ①～④ 的證據連結。有 PR 的工作優先用 `Closes #N` 隨合併自動關閉。 |
+| **關閉 Issue** | **條件式可** | 五項同時成立：① 最新狀態留言為「完成」；② 關聯 PR 全部已合併；③ 沒有 `待議長決定` label；④ 未完成的工作已移到另一個 Issue 並附連結；⑤ 關閉前留一則最後狀態留言，列出 ①～④ 的證據連結。單一 PR 合併即完成的工作，優先用 `Closes #N` 隨合併自動關閉（條件見第 4 節）。 |
 | 合併 PR | **不可** | 一律由人按（議長或正式接手者）。AI 的責任是做到「複查通過且 SHA＝head」。 |
 | 刪除 branch | 不可（日常） | 合併後由 GitHub「Automatically delete head branches」自動刪除。既有殘留的一次性清理，須議長在 Issue 明確指示，且限已合併（ahead 0）、無 open PR、非 `main` 或長期保留 branch。 |
 | repo／organization 設定、成員與權限、visibility、secrets、branch protection／ruleset、force push `main` | **不可** | 即使帳號技術上做得到也不做，只列成「需要議長親自設定」清單。 |
