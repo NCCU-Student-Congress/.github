@@ -1,17 +1,19 @@
 # nightly 操作備忘（非凍結）
 
-本檔只記錄易變操作資訊，不能變更 [治理](../GOVERNANCE.md) 或 [巡檢方法](nightly-inspection.md)。
+本檔只記錄易變操作資訊，不能變更 [治理](../GOVERNANCE.md) 或 [巡檢方法](nightly-inspection.md)。時間與負責人只在 GOVERNANCE §8 維護。
 
-## 已有來源與本輪驗證範圍
-- .github#5 記錄議長帳號 Claude 排程「議會 GitHub 每晚巡檢」每日21:50台北時間、需議長電腦開著 Claude 桌面版；換屆須移交或重建。
-- 網站#29 第一則 Claude 盤點記錄：2026-10-06提示由 list_triggers 取得；.github 曾需議長電腦Chrome。這是來源紀錄，不能推定每輪都需要同一瀏覽器。
-- 本輪 ChatGPT／Codex 實測 GitHub 連接器可讀 .github main、Issue／PR 並建立候選分支；**沒有取得或修改 Claude 排程原文**。因此方法為依#29公開已確認內容編製的候選，不宣稱完整逐字移轉。
+## 原排程核對來源
+[Claude 2026-10-08 獨立複查](https://github.com/NCCU-Student-Congress/nccu-sc-website/issues/29#issuecomment-6053940575) 已透過 list_triggers 讀原排程「議會 GitHub 每晚巡檢」完整 prompt，逐項核對方法。Claude 回報排程啟用、最近一次 10-07 成功。這是 Claude 的原始工具查證紀錄，ChatGPT 本輪不能直接存取同一排程；未宣稱修改或精簡完成。
 
-## 每次先確認
-測試當次 repo／證據讀寫、登入與複查工具，不把產品名當能力。不得把憑證、密碼或私有內部資料写進本公開檔案；有登入能力不等於正式環境授權。
-只用具權限的既有工具入口。若無法取得 .github，不繞過存取限制，回寫未巡範圍。
+排程是雲端觸發，設定沒有綁定議長電腦；依 Claude 本次存取實測，只有 .github 讀寫需要議長電腦上的已登入 Chrome。電腦／Chrome 不可用時其他可讀 repo 照巡，.github 覆蓋情形依凍結 runbook 回報。此資訊可隨工具能力改變更新，不能用來擴權。ChatGPT／Codex 本輪 GitHub 連接器則實測可讀寫 .github 的候選 PR；不同工具的能力不可互相推定。
 
-## 合併後待核對
-具存取及明確權限的原排程執行者，先讀原提示，對照 nightly-inspection.md，將缺漏以PR交獨立複查後再精簡；保留原有時間、工具入口與來源Issue回寫。在網站#29記錄完成或阻塞，不只留聊天。未核對前不得標整輪治理凍結完成。
-精簡提示範例（入口文字，實際排程仍須按原工具確認）：
-> 每日21:50（Asia/Taipei），讀 NCCU-Student-Congress/.github main 的 GOVERNANCE.md 與 runbooks/nightly-inspection.md，透過當次已授權工具執行，將結果寫回來源Issue／PR；依runbook通知。
+## 原 prompt 的操作技巧（保留來源紀錄，使用前實測）
+- Claude 的 .github 入口：議長電腦已登入 Chrome；可在瀏覽器工具允許範圍用 fetch 讀取。只使用已授權入口，不繞過限制。
+- 留言框先點選，再用鍵盤輸入；送出後讀回確認。原提示記錄 commit 訊息可能被 Copilot 改寫，提交後核對實際訊息與檔案。
+- Codex review 的 commit_id 表示其複查 SHA；不以 review 發表時間推定 head。原提示曾用 👍 或「對 head 無行內意見」判斷通過，這是介面辨識線索，**不能單憑反應或空白評論替代 GOVERNANCE 要求的鎖定 SHA 複查結論**。用 review／結論正文核對，缺完整證據則依巡檢方法交接。
+- 原提示的三段、200字通知與固定無事訊息屬方法；新方法正本已明定通知內容與無變化不重複通知，不能用本備忘改回另一套標準。
+
+## 合併後執行入口
+Claude 可依其既有存取核對最新合併版，取得明確排程修改授權後精簡；留下舊／新 prompt 對照與工具成功結果到網站 #29。未完成前不標整輪凍結。
+入口提示範例（不重複方法規則）：
+> 依既有排程時間，讀 NCCU-Student-Congress/.github main 的 GOVERNANCE.md 與 runbooks/nightly-inspection.md，工具入口見 runbooks/nightly-operations.md；結果回寫來源 Issue／PR。
