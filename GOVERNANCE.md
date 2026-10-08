@@ -117,7 +117,7 @@
   **製作者是 ChatGPT／Codex 時，不可請 Codex 複查自己**，改由 Claude Code 或人工複查（第 2 節）。
   需修正時製作者直接在同一個 PR 回應、修改，再留言請它重複查。Codex 的複查留言視同「ChatGPT 的獨立複查」，一樣要鎖定 head SHA。
   （議長 2026-10-07 決定接上；同日在 .github#4 實測可用，Codex 以自己的機器人帳號留言。額度用完時，改由議長轉給 ChatGPT。）
-- **每晚巡檢**：方法與交接規則以 [runbooks/nightly-inspection.md](runbooks/nightly-inspection.md) 為正本，不在排程保存第二份。觸發來源是議長帳號下的 Claude 排程「議會 GitHub 每晚巡檢」，每天 **21:50（Asia/Taipei）**；依現有來源紀錄需議長電腦開著 Claude 桌面版。排程負責人為議長，換屆須移交或重建。當次必要連線／登入未就緒，必須回報未巡範圍。
+- **每晚巡檢**：方法與交接規則以 [runbooks/nightly-inspection.md](runbooks/nightly-inspection.md) 為正本，不在排程保存第二份。觸發來源是議長帳號下的 Claude 排程「議會 GitHub 每晚巡檢」，每天 **21:50（Asia/Taipei）**。排程負責人為議長，換屆須移交或重建。當次執行環境與工具入口見 [非凍結操作備忘](runbooks/nightly-operations.md)。
   製作者是 ChatGPT／Codex 的 PR，由巡檢中的 Claude Code **直接獨立複查**，不能只列成永遠等待；實際讀不到則寫明阻塞。巡檢不得合併、改設定、碰正式環境或關閉 Issue。
 - **議長日常只需要做兩件事**：拍板（回覆 `待議長決定`）和按合併。開 PR、複查、依複查修改、更新 PR 說明這類**例行 GitHub 交接**，由 AI 在 GitHub 上互相接手。
   第 3、4、6 節要求議長介入的事項照舊：正式環境操作逐批同意、殘留 branch 清理的指示、跳過複查的核准、改派工作鎖等。
